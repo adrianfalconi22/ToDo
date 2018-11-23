@@ -1,5 +1,9 @@
 package com.tecnosoftware.controller;
 
+import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -9,18 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tecnosoftware.constants.ViewConstant;
-import com.tecnosoftware.entity.Tarea;
 import com.tecnosoftware.model.TareaModel;
 import com.tecnosoftware.service.TareaService;
-
-import java.util.List;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 @Controller
 //@RestController
@@ -47,12 +44,12 @@ public class TareaController {
 	}
 
 	@PostMapping("/agregartarea")
-	public String agregarTarea(@ModelAttribute(name = "tareaModel") TareaModel tareaModel, Model model) {
+	public String agregarTarea(@ModelAttribute(name = "tareaModel")@Valid TareaModel tareaModel, Model model) {
 		LOG.info("Metodo: agregarTarea() -- Params: " + tareaModel.toString());
 		if (tareaService.agregarTarea(tareaModel)!= null) {
 			model.addAttribute("result", 1);
 		} else {
-			model.addAttribute("result", 0);
+ 			model.addAttribute("result", 0);
 		}
 		return "redirect:/tareas/mostrartareas";
 

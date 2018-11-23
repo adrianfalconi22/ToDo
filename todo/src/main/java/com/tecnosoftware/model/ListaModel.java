@@ -5,16 +5,26 @@ import java.util.List;
 public class ListaModel {
 
 	private String titulo;
+	public int id;
 	private List<TareaModel> tareas;
 
 	public ListaModel() {
 
 	}
 
-	public ListaModel(String titulo, List<TareaModel> tareas) {
+	public ListaModel(int id, String titulo, List<TareaModel> tareas) {
 		super();
+		this.id = id;
 		this.titulo = titulo;
 		this.tareas = tareas;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {

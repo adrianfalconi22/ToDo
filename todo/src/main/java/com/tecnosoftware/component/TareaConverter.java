@@ -10,6 +10,7 @@ public class TareaConverter {
 
 	public Tarea convertTareaModelToTarea(TareaModel tareaModel) {
 		Tarea tarea = new Tarea();
+		tarea.setId(tareaModel.getId());
 		tarea.setTitulo(tareaModel.getTitulo());
 		tarea.setDescripcion(tareaModel.getDescripcion());
 		tarea.setEstado(tareaModel.getEstado());

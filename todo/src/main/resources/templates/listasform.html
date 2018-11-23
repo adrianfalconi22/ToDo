@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Backend Ninja - Add/modify Contact</title>
+<title>listaform</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
@@ -17,20 +17,12 @@
 
 	<div class="jumbotron">
 		<div class="container">
-			<h1>tareasForm</h1>
+			<h1>listas Form</h1>
 			<br />
-			<form action="#" th:action="@{/tareas/agregartarea}" th:object="${tareaModel}" method="post">
+			<form action="#" th:action="@{/listas/crearlista}" th:object="${listaModel}" method="post">
 				<input type="hidden" th:field="*{id}"></input>
 				<label for="title">Titulo</label>
 				 <input type="text" class="form-control" th:field="*{titulo}" th:value="${titulo}" id="title" name="title" required=""></input> <br />
-				decripcion <input type="text" class="form-control"
-					th:field="*{descripcion}" th:value="${descripcion}"></input> <br />
-				estado <input type="text" class="form-control"
-					th:field="*{estado}" th:value="${estado}"></input> <br />
-				prioridad<input type="number" class="form-control" th:field="*{prioridad}"
-					th:value="${prioridad}"></input> <br /> <br /> 
-					vencimiento<input type="String" class="form-control" th:field="*{vencimiento}"
-					th:value="${vencimiento}"></input> <br /> <br /> 
 				<button class="btn btn-lg btn-primary btn-block" type="submit">
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					Accept

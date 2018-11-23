@@ -18,7 +18,11 @@ public class TareaModel {
 	public TareaModel(int id, String titulo, int prioridad, String descripcion, Date vencimiento, String estado) {
 		super();
 		this.id = id;
-		this.titulo = titulo;
+		if (titulo == null) {
+			System.out.println("titulo no pude estar vacio");
+		} else {
+			this.titulo = titulo;
+		}
 		this.prioridad = prioridad;
 		this.descripcion = descripcion;
 		this.vencimiento = vencimiento;
